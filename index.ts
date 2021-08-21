@@ -13,8 +13,8 @@ appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
 Sigue las indicaciones de cada bloque de código.
 
 - Agrega las porciones de código faltantes para que el código se ejecute sin errores. El código faltante esta indicado por `???`
-*/
 
+*/
 //Ejercicio 1
 
 const myPromise =  new Promise((res, rej) => {
@@ -43,7 +43,7 @@ const myPromise =  new Promise((success, reject) => {
 })
 
 async function getResult() {
-  const result = await myPromise
+  const result: any = await myPromise
  
   const result2 = result + 2
 
@@ -64,11 +64,11 @@ const myPromise =  new Promise((success, reject) => {
 })
 
 async function getResult() {
-  const result = await myPromise
+  const result: any = await myPromise
  
   const result2 = result + 2
 
-  console.log('Result:', result2 // log: 'Result: 3'
+  console.log('Result:', result2) // log: 'Result: 3'
 }
 
 getResult()
@@ -93,3 +93,56 @@ async function getResult() {
 }
 
 getResult()
+
+
+
+//Ejercicios parte 2
+
+//Reescribe los bloques de código para usar async/await
+
+// Ejercicio 1
+
+
+const myPromise = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve('success')
+  }, 500)
+})
+async function getResult() {
+  const result = await myPromise
+  .then((result) => {
+    return 'This is a ' + result
+  })
+  myPromise.then((result) => {
+    console.log(result)
+  })
+}
+getResult()
+
+// Ejercicio 2
+
+
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve(1)
+    } else {
+      reject('An error has occurred')
+    }
+  }, 500)
+})
+async function getResult(){
+  const result = await myPromise
+  .then((result: number ) => {
+    return result + 1
+  })
+  .then((result) => {
+   console.log(result)
+  })
+  .catch((reject) => {
+    console.log(reject)
+  })
+}
+
+getResult()
+
