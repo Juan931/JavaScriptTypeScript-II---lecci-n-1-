@@ -88,7 +88,7 @@ async function getResult() {
     const result = await myPromise 
     console.log(result)
   } catch(reject) {
-    console.error(reject);
+    console.error(reject); //log: error!
   }
 }
 
@@ -114,7 +114,7 @@ async function getResult() {
     return 'This is a ' + result
   })
   myPromise.then((result) => {
-    console.log(result)
+    console.log(result) //log: success
   })
 }
 getResult()
@@ -140,7 +140,7 @@ async function getResult(){
    console.log(result)
   })
   .catch((reject) => {
-    console.log(reject)
+    console.log(reject) //An error has occurred
   })
 }
 
